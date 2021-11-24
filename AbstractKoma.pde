@@ -32,7 +32,7 @@ abstract class AbstractKoma {
     abstract boolean canMove(int toX, int toY);
   void move(int toX, int toY) {
     AbstractKoma koma = komaList.getKomaFromPlace(toX, toY);
-    if (this.kStat.isCaptured() && koma==null && this.canMove(toX, toY)) {
+    if (this.kStat.isCaptured() && koma==null) {
       this.updatePos(toX, toY);
     } else if((koma==null || koma.team != gs.turn) && this.canMove(toX, toY)) {
       this.moveAndCapture(koma, toX, toY);
